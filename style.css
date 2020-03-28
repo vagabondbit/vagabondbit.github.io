@@ -1,14 +1,33 @@
-body
-{
+body{
 	margin: 0;
 	padding:0;
 	height: 100vh;
+	font-family: 'Ubuntu', sans-serif;
+	font-size: 20px;
 
 }
 
-#particles-js
+.btext{
+	color: #f0efeb;
+	position: absolute;
+	text-align: center;
+	top:40%;
+	width: 100%;
+	line-height: 0.4em;
 
-{
+}
+
+
+}
+h1{
+	font-size: 50px;
+}
+
+#particles-js{
 	height: 100%;
-	background: #080825;
+	background: #040413;
+background-image: url(coffeeshop.jpg);
+	padding: all;
+	margin: all;
+	background-size: cover;
 }
