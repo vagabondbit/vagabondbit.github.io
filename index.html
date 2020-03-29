@@ -1,29 +1,39 @@
-<!DOCTYPE html>
+---
+layout: default
+current: home
+class: 'home-template'
+navigation: True
+---
 
-<html>
-	
-	<head>
-		<meta charset="utf-8">
-		<title>Twinkles in the Sky</title>
-		<link rel="stylesheet" href="style.css">
-		
-	</head>
-	<body>
-		
+<!-- < default -->
+<!-- The tag above means: insert everything in this file
+into the {body} of the default.hbs template -->
 
-		<div id="particles-js">
-			<div class="btext">
-				<h1> Vagabond Bit </h1>
-				<p>entries of a foodie</p>
-				&nbsp
-				<h3 class="neon" data-text="coming soon...">coming soon...</h3>
-				
-			</div>
+<!-- The big featured header, it uses blog cover image as a BG if available -->
+<header class="site-header outer {% if page.cover or site.cover %}" style="background-image:  url({{ site.baseurl }}{% if page.cover %}{{ page.cover }}{% elsif site.cover %}{{ site.cover }}{% endif %}) {% else %}no-cover{% endif %}">
+    <div class="inner">
+        <div class="site-header-content">
+            <h1 class="site-title">
+                {% if site.logo %}
+                    <img class="site-logo" src="{{ site.baseurl }}{{ site.logo }}" alt="{{ site.title }}"/>
+                {% else %}
+                    {{ site.title }}
+                {% endif %}
+            </h1>
+            <h2 class="site-description">{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}</h2>
+        </div>
+        {% include site-nav.html %}
+    </div>
+</header>
 
-	
-		</div>
-		
-		<script type="text/javascript" src="particles.js"></script>
-		<script type="text/javascript" src="app.js"></script>
-	</body>
-</html>
+<!-- The main content area -->
+<main id="site-main" class="site-main outer" role="main">
+    <div class="inner">
+
+        <div class="post-feed">
+            <!-- The tag below includes the markup for each post - partials/post-card.hbs -->
+            {%  include post-card.html %}
+        </div>
+
+    </div>
+</main>
